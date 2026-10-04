@@ -52,7 +52,7 @@ const users: IUser[] = [
   },
 ];
 
-const adultUsers: IUser[] = users.filter((item) => item.age >= 18);
+const adultUsers: IUser[] = users.filter((item: IUser) => item.age >= 18);
 
 // Задание 3. Сложение двух чисел.
 function sum(a: number, b: number): number {
