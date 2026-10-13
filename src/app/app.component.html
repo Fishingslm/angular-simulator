@@ -1,1 +1,86 @@
-<h1 style="display: flex; justify-content: center; font-family: sans-serif;">NGX SIMULATOR</h1>
+<header class="header">
+  <div class="header__inner container">
+    <a class="header__logo" id="company-home-link" href="/">
+      <img class="header__logo-image" src="/images/logo-icon.svg" alt="">
+      <span class="header__logo-name">
+        {{ companyName }}
+      </span>
+    </a>
+
+    <nav class="header__nav" aria-label="Основная навигация">
+      <a id="nav-home-link" href="#">
+        Главная
+      </a>
+      <a id="nav-guide-link" href="#">
+        Про гида
+      </a>
+      <a id="nav-program-link" href="#">
+        Программа тура
+      </a>
+      <a id="nav-price-link" href="#">
+        Стоимость
+      </a>
+      <a id="nav-blog-link" href="#">
+        Блог
+      </a>
+      <a id="nav-contacts-link" href="#">
+        Контакты
+      </a>
+    </nav>
+
+    <button class="header__button" id="consultation-button" type="button">
+      Консультация
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero__title">
+        Насладись прогулкой в горах
+      <br>
+        с командой единомышленников
+      </h1>
+      <form class="tour-search" id="tour-search-form">
+        <div class="tour-search__field">
+          <select class="tour-search__control" id="tour-location" name="location" aria-label="Локация для тура">
+            <option value="" selected>
+              Локация для тура
+            </option>
+          </select>
+          <span class="tour-search__hint">
+            выберите из списка
+          </span>
+        </div>
+
+        <div class="tour-search__field">
+          <div class="tour-search__date">
+            <input class="tour-search__control tour-search__date-input" id="tour-date" name="date" type="date" required>
+            <label class="tour-search__date-label" for="tour-date">
+              Дата похода
+            </label>
+          </div>
+          <span class="tour-search__hint">
+            укажите дату
+          </span>
+        </div>
+
+        <div class="tour-search__field">
+          <select class="tour-search__control" id="tour-participants" name="participants" aria-label="Участники">
+            <option value="" selected>
+              Участники
+            </option>
+          </select>
+          <span class="tour-search__hint">
+            выберите из списка
+          </span>
+        </div>
+
+        <button class="tour-search__button" id="find-program-button" type="button">
+          Найти программу
+        </button>
+      </form>
+    </div>
+  </section>
+</main>
