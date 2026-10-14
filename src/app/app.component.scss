@@ -1,0 +1,206 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  z-index: 1;
+  background-color: rgba(24, 18, 30, 0.5);
+}
+
+.header__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__nav {
+  display: flex;
+  gap: 24px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.header__logo,
+.header__nav a {
+  color: var(--white-color);
+  text-decoration: none;
+}
+
+.header__button {
+  width: 158px;
+  height: 44px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--white-color);
+  color: var(--button-color);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.header__logo {
+  width: 143px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.header__logo-image {
+  display: block;
+  width: 138px;
+  height: auto;
+}
+
+.header__logo-name {
+  height: 22px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.hero {
+  min-height: 985px;
+  padding-top: 551px;
+  background-image: url('/images/mountains-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero__title {
+  max-width: 1080px;
+  margin: 0;
+  color: var(--white-color);
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.tour-search {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 24px;
+  min-height: 161px;
+  margin-top: 41px;
+  padding: 40px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--white-color);
+  backdrop-filter: blur(6px);
+}
+
+.tour-search__field {
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tour-search__hint {
+  padding-left: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.tour-search__button {
+  width: 213px;
+  height: 52px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--button-color);
+  color: var(--white-color);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.012em;
+  cursor: pointer;
+}
+
+.tour-search__control {
+  display: block;
+  width: 100%;
+  height: 52px;
+  padding: 0 44px 0 16px;
+  border: 1px solid #E1E3E4;
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--white-color);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.tour-search__date {
+  position: relative;
+}
+
+.tour-search__date-label {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  pointer-events: none;
+}
+
+.tour-search__date-input {
+  position: relative;
+  color: transparent;
+  padding-right: 42px;
+  background-image: url('/images/calendar-icon.svg');
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 18px 18px;
+}
+
+.tour-search__date-input:focus,
+.tour-search__date-input:valid {
+  color: var(--white-color);
+}
+
+.tour-search__date-input:focus + .tour-search__date-label,
+.tour-search__date-input:valid + .tour-search__date-label {
+  display: none;
+}
+
+select.tour-search__control {
+  appearance: none;
+  background-image: url('/images/arrow-icon.svg');
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 20px 20px;
+  cursor: pointer;
+}
+
+.tour-search__control option {
+  background-color: var(--white-color);
+  color: var(--text-color);
+}
+
+.tour-search__date-input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  transform: translateY(-50%);
+  opacity: 0;
+  cursor: pointer;
+}
