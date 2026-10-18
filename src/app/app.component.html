@@ -76,18 +76,10 @@
         <form class="tour-search" id="tour-search-form">
           <div class="tour-search__field">
             <select class="tour-search__control" id="tour-location" name="location" aria-label="Локация для тура" [(ngModel)]="selectedLocation" required>
-              <option value="">
-                Локация для тура
-              </option>
-              <option value="Алтай">
-                Алтай
-              </option>
-              <option value="Кавказ">
-                Кавказ
-              </option>
-              <option value="Карелия">
-                Карелия
-              </option>
+              <option value="">Локация для тура</option>
+              <option value="Алтай">Алтай</option>
+              <option value="Кавказ">Кавказ</option>
+              <option value="Карелия">Карелия</option>
             </select>
 
             <span class="tour-search__hint">
@@ -110,18 +102,10 @@
 
           <div class="tour-search__field">
             <select class="tour-search__control" id="tour-participants" name="participants" aria-label="Участники" [(ngModel)]="selectedParticipants" required>
-              <option value="">
-                Участники
-              </option>
-              <option value="4">
-                4 человека
-              </option>
-              <option value="5">
-                5 человек
-              </option>
-              <option value="6">
-                6 человек
-              </option>
+              <option value="">Участники</option>
+              <option value="4">4 человека</option>
+              <option value="5">5 человек</option>
+              <option value="6">6 человек</option>
             </select>
             <span class="tour-search__hint">
               {{ selectedParticipants || 'минимум 4 человека' }}
