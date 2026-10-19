@@ -7,51 +7,31 @@
     <div class="header__inner container">
       <a class="header__logo" id="company-home-link" href="/">
         <img class="header__logo-image" src="/images/logo-icon.svg" alt="">
-        <span class="header__logo-name">
-          {{ companyName }}
-        </span>
+        <span class="header__logo-name">{{ companyName }}</span>
       </a>
 
       <nav class="header__nav" aria-label="Основная навигация">
-        <a id="nav-home-link" href="#">
-          Главная
-        </a>
-        <a id="nav-guide-link" href="#">
-          Про гида
-        </a>
-        <a id="nav-program-link" href="#">
-          Программа тура
-        </a>
-        <a id="nav-price-link" href="#">
-          Стоимость
-        </a>
-        <a id="nav-blog-link" href="#">
-          Блог
-        </a>
-        <a id="nav-contacts-link" href="#">
-          Контакты
-        </a>
+        <a id="nav-home-link" href="#">Главная</a>
+        <a id="nav-guide-link" href="#">Про гида</a>
+        <a id="nav-program-link" href="#">Программа тура</a>
+        <a id="nav-price-link" href="#">Стоимость</a>
+        <a id="nav-blog-link" href="#">Блог</a>
+        <a id="nav-contacts-link" href="#">Контакты</a>
       </nav>
 
-      <button class="header__button" id="consultation-button" type="button">
-        Консультация
-      </button>
+      <button class="header__button" id="consultation-button" type="button">Консультация</button>
     </div>
 
     <div class="header__widget container">
       @if (showClock) {
-        <p class="header__time" id="current-time">
-          {{ currentTime }}
-        </p>
+        <p class="header__time" id="current-time">{{ currentTime }}</p>
       } @else {
         <div class="header__counter">
           <button class="header__counter-button" id="increase-counter-button" type="button" aria-label="Увеличить счётчик" (click)="clickCount = clickCount + 1">
             +
           </button>
 
-          <span class="header__counter-value">
-            {{ clickCount }}
-          </span>
+          <span class="header__counter-value">{{ clickCount }}</span>
 
           <button class="header__counter-button" id="decrease-counter-button" type="button" aria-label="Уменьшить счётчик" [disabled]="clickCount === 0" (click)="clickCount = clickCount - 1">
             −
@@ -68,11 +48,7 @@
   <main>
     <section class="hero">
       <div class="container">
-        <h1 class="hero__title">
-          Насладись прогулкой в горах
-          <br>
-          с командой единомышленников
-        </h1>
+        <h1 class="hero__title">Насладись прогулкой в горах<br>с командой единомышленников</h1>
         <form class="tour-search" id="tour-search-form">
           <div class="tour-search__field">
             <select class="tour-search__control" id="tour-location" name="location" aria-label="Локация для тура" [(ngModel)]="selectedLocation" required>
@@ -82,22 +58,16 @@
               <option value="Карелия">Карелия</option>
             </select>
 
-            <span class="tour-search__hint">
-              {{ selectedLocation || 'выберите из списка' }}
-            </span>
+            <span class="tour-search__hint">{{ selectedLocation || 'выберите из списка' }}</span>
           </div>
 
           <div class="tour-search__field">
             <div class="tour-search__date">
               <input class="tour-search__control tour-search__date-input" id="tour-date" name="date" type="date" [(ngModel)]="selectedDate" required>
-              <label class="tour-search__date-label" for="tour-date">
-                Дата похода
-              </label>
+              <label class="tour-search__date-label" for="tour-date">Дата похода</label>
             </div>
 
-            <span class="tour-search__hint">
-              {{ selectedDate || 'укажите дату' }}
-            </span>
+            <span class="tour-search__hint">{{ selectedDate || 'укажите дату' }}</span>
           </div>
 
           <div class="tour-search__field">
@@ -107,9 +77,7 @@
               <option value="5">5 человек</option>
               <option value="6">6 человек</option>
             </select>
-            <span class="tour-search__hint">
-              {{ selectedParticipants || 'минимум 4 человека' }}
-            </span>
+            <span class="tour-search__hint">{{ selectedParticipants || 'минимум 4 человека' }}</span>
           </div>
 
           <button class="tour-search__button" id="find-program-button" type="button" [disabled]="!selectedLocation || !selectedDate || !selectedParticipants">
@@ -124,9 +92,7 @@
             </span>
           </div>
 
-          <p class="live-input__value">
-            {{ liveText }}
-          </p>
+          <p class="live-input__value">{{ liveText }}</p>
         </div>
       </div>
     </section>
@@ -147,13 +113,9 @@
 
         <div class="about__content">
           <div class="about__heading">
-            <p class="about__subtitle">
-              о нашем походе
-            </p>
+            <p class="about__subtitle">о нашем походе</p>
 
-            <h2 class="about__title">
-              Исследуйте все горные массивы мира вместе с нами
-            </h2>
+            <h2 class="about__title">Исследуйте все горные массивы мира вместе с нами</h2>
           </div>
 
           <p class="about__description">
@@ -165,9 +127,7 @@
             его поисками в классической латинской литературе.
           </p>
 
-          <a class="about__button" id="about-program-link" href="#tour-search-form">
-            Программа тура
-          </a>
+          <a class="about__button" id="about-program-link" href="#tour-search-form">Программа тура</a>
         </div>
       </div>
     </section>
@@ -176,13 +136,9 @@
       <div class="offer__inner container">
         <div class="offer__content">
           <div class="offer__heading">
-            <p class="offer__subtitle">
-              наше предложение
-            </p>
+            <p class="offer__subtitle">наше предложение</p>
 
-            <h2 class="offer__title">
-              Лучшие программы для тебя
-            </h2>
+            <h2 class="offer__title">Лучшие программы для тебя</h2>
           </div>
 
           <p class="offer__description">
@@ -199,21 +155,15 @@
                 </span>
 
                 <div class="offer__advantage-content">
-                  <h3 class="offer__advantage-title">
-                    {{ advantage.title }}
-                  </h3>
+                  <h3 class="offer__advantage-title">{{ advantage.title }}</h3>
 
-                  <p class="offer__advantage-description">
-                    {{ advantage.description }}
-                  </p>
+                  <p class="offer__advantage-description">{{ advantage.description }}</p>
                 </div>
               </li>
             }
           </ul>
 
-          <a class="offer__button" id="offer-price-link" href="#tour-search-form">
-            Стоимость программ
-          </a>
+          <a class="offer__button" id="offer-price-link" href="#tour-search-form">Стоимость программ</a>
         </div>
 
         <div class="offer__images">
