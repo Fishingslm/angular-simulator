@@ -273,14 +273,18 @@ select.tour-search__control {
 }
 
 .about__heading,
-.offer__heading {
+.offer__heading,
+.destinations__heading,
+.blog__heading {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
 .about__subtitle,
-.offer__subtitle {
+.offer__subtitle,
+.destinations__subtitle,
+.blog__subtitle {
   margin: 0;
   color: var(--accent-color);
   font-size: 24px;
@@ -289,7 +293,9 @@ select.tour-search__control {
 }
 
 .about__title,
-.offer__title {
+.offer__title,
+.destinations__title,
+.blog__title {
   margin: 0;
   font-size: 32px;
   font-weight: 800;
@@ -304,7 +310,9 @@ select.tour-search__control {
 }
 
 .about__button,
-.offer__button {
+.offer__button,
+.destinations__button,
+.blog__button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -576,4 +584,211 @@ select.tour-search__control {
   to {
     transform: rotate(360deg);
   }
+}
+
+.destinations__cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.destinations__card {
+  position: relative;
+}
+
+.destinations__image {
+  display: block;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 32px;
+}
+
+.destinations__rating {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 4px 0 0 4px;
+  background-color: rgba(253, 253, 253, 0.4);
+  backdrop-filter: blur(2px);
+  color: var(--button-color);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+.destinations__rating img {
+  display: block;
+}
+
+.destinations__details {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 90px;
+  padding: 20px 32px;
+  border-radius: 0 0 32px 32px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(3px);
+  color: var(--white-color);
+}
+
+.destinations__name {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.destinations__caption {
+  margin: 0;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.destinations__price {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.3);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.destinations {
+  padding: 80px 0 100px;
+}
+
+.destinations__heading {
+  align-items: center;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.destinations__button,
+.blog__button {
+  display: flex;
+  width: 244px;
+  margin: 50px auto 0;
+  padding: 16px 36px;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.blog__button {
+  width: 220px;
+  white-space: nowrap;
+}
+
+.blog__cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 20px;
+}
+
+.blog__card {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: var(--white-color);
+  transition: box-shadow 0.2s ease;
+}
+
+.blog__image {
+  display: block;
+  width: 230px;
+  height: 280px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.blog__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+  height: 280px;
+  padding: 16px 0;
+}
+
+.blog__name {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.blog__description {
+  flex: 1;
+  min-height: 0;
+  margin: 0;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.blog__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.blog__date {
+  color: var(--accent-color);
+}
+
+.blog__read-button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: var(--button-color);
+  font: inherit;
+  cursor: pointer;
+}
+
+.blog__read-button:hover {
+  text-decoration: underline;
+}
+
+.blog {
+  padding: 80px 0 100px;
+  background-color: var(--section-background-color);
+}
+
+.blog__heading {
+  align-items: center;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.blog__card:hover {
+  box-shadow: 0 0 15px rgba(24, 18, 30, 0.12);
+}
+
+.blog__card:hover .blog__name {
+  color: var(--button-color);
+  text-decoration: underline;
+}
+
+.blog__image--flight {
+  object-position: center 4%;
 }

@@ -173,5 +173,65 @@
         </div>
       </div>
     </section>
+    <section class="destinations">
+      <div class="container">
+        <div class="destinations__heading">
+          <p class="destinations__subtitle">по версии отдыхающих</p>
+          <h2 class="destinations__title">Популярные направления</h2>
+        </div>
+
+        <div class="destinations__cards">
+          @for (destination of destinations; track destination.id) {
+            <article class="destinations__card">
+              <img class="destinations__image" [src]="'/images/' + destination.image + '.png'" [alt]="destination.title">
+              <div class="destinations__rating">
+                <img src="/images/star-icon.svg" alt="">
+                <span>{{ destination.rating.toFixed(1) }}</span>
+              </div>
+
+              <div class="destinations__details">
+                <div class="destinations__description">
+                  <h3 class="destinations__name">{{ destination.title }}</h3>
+                  <p class="destinations__caption">{{ destination.subtitle }}</p>
+                </div>
+
+                <span class="destinations__price">{{ destination.price }} $</span>
+              </div>
+            </article>
+          }
+        </div>
+
+        <button class="destinations__button" id="destinations-rating-button" type="button">Рейтинг направлений</button>
+      </div>
+    </section>
+    <section class="blog">
+      <div class="container">
+        <div class="blog__heading">
+          <p class="blog__subtitle">делимся впечатлениями</p>
+          <h2 class="blog__title">Блог о путешествиях</h2>
+        </div>
+
+        <div class="blog__cards">
+          @for (article of articles; track article.id) {
+            <article class="blog__card">
+              <img class="blog__image" [class.blog__image--flight]="article.image === 'blog-flight'" [src]="'/images/' + article.image + '.png'" [alt]="article.title">
+              <div class="blog__content">
+                <h3 class="blog__name">{{ article.title }}</h3>
+
+                <p class="blog__description">{{ article.description }}</p>
+
+                <div class="blog__meta">
+                  <span class="blog__date">{{ article.date }}</span>
+
+                  <button class="blog__read-button" id="read-article-{{ article.id }}" type="button">читать статью</button>
+                </div>
+              </div>
+            </article>
+          }
+        </div>
+
+        <button class="blog__button" id="blog-materials-button" type="button">Другие материалы</button>
+      </div>
+    </section>
   </main>
 }
