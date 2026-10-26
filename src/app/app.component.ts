@@ -1,20 +1,29 @@
 import { FormsModule } from '@angular/forms';
-import { Component, OnDestroy } from '@angular/core';
+import { Component, inject, OnDestroy } from '@angular/core';
 import { Color } from '../enums/Color';
 import { Collection } from './collection';
 import { IAdvantage } from '../interfaces/IAdvantage';
 import { IDestination } from '../interfaces/IDestination';
 import { IArticle } from '../interfaces/IArticle';
+import { MessageService } from '../services/message.service';
+import { MessageType } from '../enums/MessageType';
+import { NgTemplateOutlet } from '@angular/common';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule],
+  imports: [FormsModule, NgTemplateOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 
 export class AppComponent implements OnDestroy {
 
+  messageService: MessageService = inject(MessageService);
+
+  private storageService: StorageService = inject(StorageService);
+
+  messageType: typeof MessageType = MessageType;
   companyName: string = 'РумТибет';
   selectedLocation: string = '';
   selectedDate: string = '';
@@ -166,15 +175,14 @@ export class AppComponent implements OnDestroy {
   private saveLastVisitDate(): void {
     const date: Date = new Date();
 
-    localStorage.setItem('lastVisit', date.toISOString());
+    this.storageService.setItem<string>('lastVisit', date.toISOString());
   }
 
   private saveVisitCount(): void {
-    const visitCount: number = Number(
-      localStorage.getItem('visitCount')
-    );
+    const visitCount: number =
+      this.storageService.getItem<number>('visitCount') ?? 0;
 
-    localStorage.setItem('visitCount', String(visitCount + 1));
+    this.storageService.setItem<number>('visitCount', visitCount + 1);
   }
 
 }
