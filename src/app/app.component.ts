@@ -1,18 +1,29 @@
 import { FormsModule } from '@angular/forms';
-import { Component, OnDestroy } from '@angular/core';
+import { Component, inject, OnDestroy } from '@angular/core';
 import { Color } from '../enums/Color';
 import { Collection } from './collection';
 import { IAdvantage } from '../interfaces/IAdvantage';
+import { IDestination } from '../interfaces/IDestination';
+import { IArticle } from '../interfaces/IArticle';
+import { MessageService } from '../services/message.service';
+import { MessageType } from '../enums/MessageType';
+import { NgTemplateOutlet } from '@angular/common';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule],
+  imports: [FormsModule, NgTemplateOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 
 export class AppComponent implements OnDestroy {
 
+  messageService: MessageService = inject(MessageService);
+
+  private storageService: StorageService = inject(StorageService);
+
+  messageType: typeof MessageType = MessageType;
   companyName: string = 'РумТибет';
   selectedLocation: string = '';
   selectedDate: string = '';
@@ -50,6 +61,66 @@ export class AppComponent implements OnDestroy {
     'offer-hiker',
     'offer-snowmobile',
     'offer-valley',
+  ];
+  destinations: IDestination[] = [
+    {
+      id: 1,
+      title: 'Озеро возле гор',
+      subtitle: 'романтическое приключение',
+      image: 'destination-lake',
+      price: 480,
+      rating: 4.9,
+    },
+    {
+      id: 2,
+      title: 'Ночь в горах',
+      subtitle: 'в компании друзей',
+      image: 'destination-night',
+      price: 500,
+      rating: 4.5,
+    },
+    {
+      id: 3,
+      title: 'Растяжка в горах',
+      subtitle: 'для тех, кто заботится о себе',
+      image: 'destination-stretching',
+      price: 230,
+      rating: 5.0,
+    },
+  ];
+
+  articles: IArticle[] = [
+    {
+      id: 1,
+      title: 'Красивая Италия, какая она в реальности?',
+      description:
+        'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
+      image: 'blog-italy',
+      date: '01/04/2023',
+    },
+    {
+      id: 2,
+      title: 'Долой сомнения! Весь мир открыт для вас!',
+      description:
+        'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации ... независимые способы реализации соответствующих...',
+      image: 'blog-flight',
+      date: '01/04/2023',
+    },
+    {
+      id: 3,
+      title: 'Как подготовиться к путешествию в одиночку?',
+      description:
+        'Для современного мира базовый вектор развития предполагает.',
+      image: 'blog-solo',
+      date: '01/04/2023',
+    },
+    {
+      id: 4,
+      title: 'Индия ... летим?',
+      description: 'Для современного мира базовый.',
+      image: 'blog-india',
+      date: '01/04/2023',
+    },
   ];
 
   private clockIntervalId: number | undefined;
@@ -104,15 +175,14 @@ export class AppComponent implements OnDestroy {
   private saveLastVisitDate(): void {
     const date: Date = new Date();
 
-    localStorage.setItem('lastVisit', date.toISOString());
+    this.storageService.setItem<string>('lastVisit', date.toISOString());
   }
 
   private saveVisitCount(): void {
-    const visitCount: number = Number(
-      localStorage.getItem('visitCount')
-    );
+    const visitCount: number =
+      this.storageService.getItem<number>('visitCount') ?? 0;
 
-    localStorage.setItem('visitCount', String(visitCount + 1));
+    this.storageService.setItem<number>('visitCount', visitCount + 1);
   }
 
 }

@@ -127,7 +127,7 @@
             его поисками в классической латинской литературе.
           </p>
 
-          <a class="about__button" id="about-program-link" href="#tour-search-form">Программа тура</a>
+          <a class="about__button" id="about-program-link" href="#tour-search-form" (click)="messageService.addMessage('Форма выбора тура открыта.', messageType.SUCCESS)">Программа тура</a>
         </div>
       </div>
     </section>
@@ -173,5 +173,85 @@
         </div>
       </div>
     </section>
+    <section class="destinations">
+      <div class="container">
+        <div class="destinations__heading">
+          <p class="destinations__subtitle">по версии отдыхающих</p>
+          <h2 class="destinations__title">Популярные направления</h2>
+        </div>
+
+        <div class="destinations__cards">
+          @for (destination of destinations; track destination.id) {
+            <article class="destinations__card">
+              <img class="destinations__image" [src]="'/images/' + destination.image + '.png'" [alt]="destination.title">
+              <div class="destinations__rating">
+                <img src="/images/star-icon.svg" alt="">
+                <span>{{ destination.rating.toFixed(1) }}</span>
+              </div>
+
+              <div class="destinations__details">
+                <div class="destinations__description">
+                  <h3 class="destinations__name">{{ destination.title }}</h3>
+                  <p class="destinations__caption">{{ destination.subtitle }}</p>
+                </div>
+
+                <span class="destinations__price">{{ destination.price }} $</span>
+              </div>
+            </article>
+          }
+        </div>
+
+        <button class="destinations__button" id="destinations-rating-button" type="button" (click)="messageService.addMessage('Рейтинг направлений пока недоступен.', messageType.WARN)">Рейтинг направлений</button>
+      </div>
+    </section>
+    <section class="blog">
+      <div class="container">
+        <div class="blog__heading">
+          <p class="blog__subtitle">делимся впечатлениями</p>
+          <h2 class="blog__title">Блог о путешествиях</h2>
+        </div>
+
+        <div class="blog__cards">
+          @for (article of articles; track article.id) {
+            <article class="blog__card">
+              <img class="blog__image" [class.blog__image--flight]="article.image === 'blog-flight'" [src]="'/images/' + article.image + '.png'" [alt]="article.title">
+              <div class="blog__content">
+                <h3 class="blog__name">{{ article.title }}</h3>
+
+                <p class="blog__description">{{ article.description }}</p>
+
+                <div class="blog__meta">
+                  <span class="blog__date">{{ article.date }}</span>
+
+                  <button class="blog__read-button" id="read-article-{{ article.id }}" type="button" (click)="messageService.addMessage('Статья пока недоступна: ' + article.title, messageType.ERROR)">читать статью</button>
+                </div>
+              </div>
+            </article>
+          }
+        </div>
+
+        <button class="blog__button" id="blog-materials-button" type="button" (click)="messageService.addMessage('Другие материалы пока недоступны.', messageType.INFO)">Другие материалы</button>
+      </div>
+    </section>
   </main>
 }
+<div class="messages">
+  @for (message of messageService.allMessages; track message.id) {
+    <ng-container
+      [ngTemplateOutlet]="messageTemplate"
+      [ngTemplateOutletContext]="{ message: message }"
+    >
+    </ng-container>
+  }
+</div>
+<ng-template #messageTemplate let-message="message">
+  <article class="message" role="status">
+    <img class="message__icon" src="/images/message-icon.svg" alt="">
+    <div class="message__content">
+      <h3 class="message__title">{{ message.type }}</h3>
+      <p class="message__text">{{ message.text }}</p>
+    </div>
+
+    <button class="message__close" id="close-message-{{ message.id }}" type="button" aria-label="Закрыть сообщение" (click)="messageService.closeMessage(message.id)"><img src="/images/message-close-icon.svg" alt=""></button>
+  </article>
+</ng-template>
