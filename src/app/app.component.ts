@@ -9,6 +9,7 @@ import { MessageService } from '../services/message.service';
 import { MessageType } from '../enums/MessageType';
 import { NgTemplateOutlet } from '@angular/common';
 import { StorageService } from '../services/storage.service';
+import { IPhoto } from '../interfaces/IPhoto';
 
 @Component({
   selector: 'app-root',
@@ -120,6 +121,38 @@ export class AppComponent implements OnDestroy {
       description: 'Для современного мира базовый.',
       image: 'blog-india',
       date: '01/04/2023',
+    },
+  ];
+  photos: IPhoto[] = [
+    {
+      id: 1,
+      image: 'gallery-balloons',
+      alt: 'Путешественники на фоне воздушных шаров',
+    },
+    {
+      id: 2,
+      image: 'gallery-map',
+      alt: 'Карта и фотоаппарат для путешествия',
+    },
+    {
+      id: 3,
+      image: 'gallery-hotel',
+      alt: 'Отель в форме паруса у моря',
+    },
+    {
+      id: 4,
+      image: 'gallery-beach',
+      alt: 'Пляж с лодками у берега',
+    },
+    {
+      id: 5,
+      image: 'gallery-canyon',
+      alt: 'Путешественница на фоне каньона',
+    },
+    {
+      id: 6,
+      image: 'gallery-travel',
+      alt: 'Блокнот, карта и фотоаппарат',
     },
   ];
 
