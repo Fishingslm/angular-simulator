@@ -39,18 +39,11 @@
           <a class="footer__contact" id="footer-phone-link" href="tel:+71234567890">+7 (123) 456-78-90</a>
         </div>
         <div class="footer__socials">
-          <a class="footer__social-link" id="footer-telegram-link" href="#" aria-label="Telegram">
-            <img class="footer__social-icon" src="/images/footer-telegram-icon.svg" alt="">
-          </a>
-          <a class="footer__social-link" id="footer-vk-link" href="#" aria-label="ВКонтакте">
-            <img class="footer__social-icon" src="/images/footer-vk-icon.svg" alt="">
-          </a>
-          <a class="footer__social-link" id="footer-pinterest-link" href="#" aria-label="Pinterest">
-            <img class="footer__social-icon" src="/images/footer-pinterest-icon.svg" alt="">
-          </a>
-          <a class="footer__social-link" id="footer-skype-link" href="#" aria-label="Skype">
-            <img class="footer__social-icon" src="/images/footer-skype-icon.svg" alt="">
-          </a>
+          @for (icon of socialIcons; track icon) {
+            <a class="footer__social-link" id="footer-{{ icon }}-link" href="#" [attr.aria-label]="icon">
+              <img class="footer__social-icon" [src]="'/images/footer-' + icon + '-icon.svg'" alt="">
+            </a>
+          }
         </div>
       </div>
       <nav class="footer__nav" aria-label="Наши услуги">

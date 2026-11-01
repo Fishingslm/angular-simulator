@@ -9,5 +9,11 @@ import { Component } from '@angular/core';
 export class FooterComponent {
 
   companyName: string = 'РумТибет';
+  socialIcons: string[] = [
+    'telegram',
+    'vk',
+    'pinterest',
+    'skype',
+  ];
 
 }
