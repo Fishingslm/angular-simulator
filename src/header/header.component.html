@@ -1,0 +1,38 @@
+  <header class="header">
+    <div class="header__inner container">
+      <a class="header__logo" id="company-home-link" routerLink="/">
+        <img class="header__logo-image" src="/images/logo-icon.svg" alt="">
+        <span class="header__logo-name">{{ companyName }}</span>
+      </a>
+
+      <nav class="header__nav" aria-label="Основная навигация">
+        @for (item of navigationItems; track item.id) {
+          <a id="nav-link-{{ item.id }}" [routerLink]="item.path" routerLinkActive="header__link--active" [routerLinkActiveOptions]="{ exact: true }">{{ item.title }}</a>
+        }
+      </nav>
+
+      <button class="header__button" id="consultation-button" type="button">Консультация</button>
+    </div>
+
+    <div class="header__widget container">
+      @if (showClock) {
+        <p class="header__time" id="current-time">{{ currentTime }}</p>
+      } @else {
+        <div class="header__counter">
+          <button class="header__counter-button" id="increase-counter-button" type="button" aria-label="Увеличить счётчик" (click)="clickCount = clickCount + 1">
+            +
+          </button>
+
+          <span class="header__counter-value">{{ clickCount }}</span>
+
+          <button class="header__counter-button" id="decrease-counter-button" type="button" aria-label="Уменьшить счётчик" [disabled]="clickCount === 0" (click)="clickCount = clickCount - 1">
+            −
+          </button>
+        </div>
+      }
+
+      <button class="header__button header__toggle-button" id="toggle-widget-button" type="button" (click)="showClock = !showClock">
+        {{ showClock ? 'Показать кликер' : 'Показать дату' }}
+      </button>
+    </div>
+  </header>

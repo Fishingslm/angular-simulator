@@ -1,0 +1,21 @@
+:host {
+  display: block;
+}
+
+.not-found-page {
+  min-height: 600px;
+  padding: 196px 0 100px;
+}
+
+.not-found-page__title {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.not-found-page__description {
+  margin: 16px 0 0;
+  font-size: 18px;
+  line-height: 1.5;
+}

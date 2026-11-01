@@ -10,11 +10,33 @@ export class MessageService {
   private messages: IMessage[] = [];
   private nextId: number = 1;
 
-  get allMessages(): IMessage[] {
+  getMessages(): IMessage[] {
     return this.messages;
   }
+  
+  showSuccess(text: string): void {
+    this.addMessage(text, MessageType.SUCCESS);
+  }
 
-  addMessage(text: string, type: MessageType): void {
+  showError(text: string): void {
+    this.addMessage(text, MessageType.ERROR);
+  }
+
+  showWarn(text: string): void {
+    this.addMessage(text, MessageType.WARN);
+  }
+
+  showInfo(text: string): void {
+    this.addMessage(text, MessageType.INFO);
+  }
+
+  closeMessage(id: number): void {
+    this.messages = this.messages.filter(
+      (message: IMessage): boolean => message.id !== id
+    );
+  }
+
+  private addMessage(text: string, type: MessageType): void {
     const newMessage: IMessage = {
       id: this.nextId,
       text: text,
@@ -27,12 +49,6 @@ export class MessageService {
     window.setTimeout((): void => {
       this.closeMessage(newMessage.id);
     }, 5000);
-  }
-
-  closeMessage(id: number): void {
-    this.messages = this.messages.filter(
-      (message: IMessage): boolean => message.id !== id
-    );
   }
 
 }
