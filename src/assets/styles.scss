@@ -18,6 +18,10 @@ body {
   font-family: 'Nunito Sans', sans-serif;
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
 .container {
   max-width: 1180px;
   margin: 0 auto;
