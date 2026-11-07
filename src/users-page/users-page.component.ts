@@ -14,9 +14,10 @@ export class UsersPageComponent {
 
   private userService: UserService = inject(UserService);
 
-  users$: Observable<IUser[]> = this.userService.loadUsers()
-    .pipe(
-      subscribeOn(asapScheduler),
-    );
+  users$: Observable<IUser[]> =
+    this.userService.loadUsers()
+     .pipe(
+       subscribeOn(asapScheduler),
+     );
 
 }
