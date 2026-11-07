@@ -1,0 +1,22 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(24, 18, 30, 0.55);
+}
+
+.loader__image {
+  display: block;
+  width: 51px;
+  height: 51px;
+  animation: loader-spin 1s linear infinite;
+}
+
+@keyframes loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

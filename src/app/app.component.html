@@ -1,15 +1,19 @@
-@if (isLoading) {
-  <div class="loader" role="status" aria-label="Загрузка страницы">
-    <img class="loader__image" src="/images/loader.png" alt="">
-  </div>
-} @else {
-  <app-header></app-header>
+<div [inert]="(loaderService.loading$ | async) === true">
+  @if (isLoading) {
+    <div class="loader" role="status" aria-label="Загрузка страницы">
+      <img class="loader__image" src="/images/loader.png" alt="">
+    </div>
+  } @else {
+    <app-header></app-header>
 
-  <main>
-    <router-outlet></router-outlet>
-  </main>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
 
-  <app-footer></app-footer>
-}
+    <app-footer></app-footer>
+  }
 
-<app-message></app-message>
+  <app-message></app-message>
+</div>
+
+<app-loader></app-loader>
