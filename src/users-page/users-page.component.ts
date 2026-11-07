@@ -16,8 +16,8 @@ export class UsersPageComponent {
 
   users$: Observable<IUser[]> =
     this.userService.loadUsers()
-     .pipe(
-       subscribeOn(asapScheduler),
-     );
+      .pipe(
+        subscribeOn(asapScheduler),
+      );
 
 }
