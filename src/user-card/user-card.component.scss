@@ -1,0 +1,128 @@
+:host {
+  display: grid;
+  min-width: 0;
+}
+
+.user-card {
+  min-width: 0;
+  min-height: 630px;
+  padding: 35px 30px 50px;
+  border-top: 4px solid #D4A373;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  color: #1D3939;
+}
+
+.user-card__header {
+  margin-bottom: 45px;
+}
+
+.user-card__name {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.user-card__username {
+  margin: 3px 0 0;
+  color: #D4A373;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.user-card__id {
+  margin-left: 8px;
+  color: #667C7C;
+  font-size: 12px;
+}
+
+.user-card__section + .user-card__section {
+  margin-top: 25px;
+}
+
+.user-card__heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 12px;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.user-card__heading::after {
+  flex: 1;
+  height: 1px;
+  background-color: #E2E8F0;
+  content: '';
+}
+
+.user-card__details {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.user-card__row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.user-card__row dt {
+  flex-shrink: 0;
+  color: #667C7C;
+}
+
+.user-card__row dd {
+  min-width: 0;
+  max-width: 65%;
+  margin: 0;
+  font-weight: 700;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.user-card__link {
+  color: #D4A373;
+  text-decoration: none;
+}
+
+.user-card__link:hover {
+  text-decoration: underline;
+}
+
+.user-card__coordinates {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.user-card__coordinate {
+  padding: 0 7px;
+  border: 1px solid #E2E8F0;
+  border-radius: 3px;
+  background-color: #F4F7F5;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.user-card__row .user-card__quote {
+  max-width: 189px;
+  padding-top: 4px;
+  color: #667C7C;
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.5;
+}

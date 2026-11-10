@@ -1,0 +1,89 @@
+<article class="user-card">
+  <header class="user-card__header">
+    <h2 class="user-card__name">{{ user.name }}</h2>
+    <p class="user-card__username">
+      &#64;{{ user.username }}
+      <span class="user-card__id">ID {{ user.id }}</span>
+    </p>
+  </header>
+
+  <section class="user-card__section">
+    <h3 class="user-card__heading">Контакты</h3>
+    <dl class="user-card__details">
+      <div class="user-card__row">
+        <dt>Эл. почта:</dt>
+        <dd>
+          <a class="user-card__link" id="user-email-{{ user.id }}" [href]="'mailto:' + user.email">{{ user.email }}</a>
+        </dd>
+      </div>
+      <div class="user-card__row">
+        <dt>Телефон:</dt>
+        <dd>{{ user.phone }}</dd>
+      </div>
+      <div class="user-card__row">
+        <dt>Веб-сайт:</dt>
+        <dd>
+          @if ((user.website || '').trim(); as website) {
+            <a class="user-card__link" id="user-website-{{ user.id }}" [href]="'https://' + website">{{ website }}</a>
+          } @else {
+            Неизвестно
+          }
+        </dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="user-card__section">
+    <h3 class="user-card__heading">Адрес проживания</h3>
+    <dl class="user-card__details">
+      <div class="user-card__row">
+        <dt>Город:</dt>
+        <dd>{{ user.address.city }}</dd>
+      </div>
+      <div class="user-card__row">
+        <dt>Улица:</dt>
+        <dd>{{ user.address.street }}</dd>
+      </div>
+      <div class="user-card__row">
+        <dt>Офис:</dt>
+        <dd>{{ (user.address.suite || '').trim() || 'Неизвестно' }}</dd>
+      </div>
+      <div class="user-card__row">
+        <dt>Индекс:</dt>
+        <dd>{{ user.address.zipcode }}</dd>
+      </div>
+      <div class="user-card__row">
+        <dt>Координаты:</dt>
+        <dd class="user-card__coordinates">
+          <span class="user-card__coordinate">{{ user.address.geo.lat }}</span>
+          <span class="user-card__coordinate">{{ user.address.geo.lng }}</span>
+        </dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="user-card__section">
+    <h3 class="user-card__heading">Место работы</h3>
+    <dl class="user-card__details">
+      <div class="user-card__row">
+        <dt>Компания:</dt>
+        <dd>{{ user.company.name }}</dd>
+      </div>
+      <div class="user-card__row">
+        <dt>Миссия:</dt>
+        <dd class="user-card__quote">
+          @if ((user.company.catchPhrase || '').trim(); as catchPhrase) {
+            «{{ catchPhrase }}»
+          } @else {
+            Неизвестно
+          }
+        </dd>
+      </div>
+      <div class="user-card__row">
+        <dt>Специализация:</dt>
+        <dd>{{ (user.company.bs || '').trim() || 'Неизвестно' }}</dd>
+      </div>
+    </dl>
+  </section>
+  <button class="user-card__delete-button" id="delete-user-{{ user.id }}" type="button" (click)="requestDelete()">Удалить пользователя</button>
+</article>
