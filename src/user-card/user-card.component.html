@@ -85,5 +85,5 @@
       </div>
     </dl>
   </section>
-  <button class="user-card__delete-button" id="delete-user-{{ user.id }}" type="button" (click)="requestDelete()">Удалить пользователя</button>
+  <button class="user-card__delete-button" id="delete-user-{{ user.id }}" type="button" (click)="deleteUser.emit(user.id)">Удалить пользователя</button>
 </article>

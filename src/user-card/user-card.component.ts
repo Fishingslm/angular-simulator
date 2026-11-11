@@ -8,11 +8,8 @@ import { IUser } from '../interfaces/IUser';
   styleUrl: './user-card.component.scss',
 })
 export class UserCardComponent {
+
   @Input({ required: true }) user!: IUser;
   @Output() deleteUser: EventEmitter<number> = new EventEmitter<number>();
-
-  requestDelete(): void {
-    this.deleteUser.emit(this.user.id);
-  }
 
 }

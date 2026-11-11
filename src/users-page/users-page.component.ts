@@ -24,16 +24,16 @@ export class UsersPageComponent {
         subscribeOn(asapScheduler),
         switchMap((): Observable<IUser[]> => this.userService.getUsers()),
       );
-  
+
   filteredUsers$: Observable<IUser[]> = combineLatest([this.users$, this.searchSubject])
-  .pipe(
-    map(([users, query]: [IUser[], string]): IUser[] => {
-      return users.filter((user: IUser): boolean => {
-        const name: string = user.name.trim().toLowerCase();
-        return name.includes(query);
-      });
-    }),
-  );
+    .pipe(
+      map(([users, query]: [IUser[], string]): IUser[] => {
+        return users.filter((user: IUser): boolean => {
+          const name: string = user.name.trim().toLowerCase();
+          return name.includes(query);
+        });
+      }),
+    );
 
   deleteUser(id: number): void {
     this.userService.deleteUser(id);

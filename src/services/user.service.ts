@@ -14,8 +14,6 @@ import { MessageService } from './message.service';
 import { UserApiService } from './user-api.service';
 import { StorageService } from './storage.service';
 
-const USERS_STORAGE_KEY: string = 'users';
-
 @Injectable({
   providedIn: 'root',
 })
@@ -25,12 +23,13 @@ export class UserService {
   private loaderService: LoaderService = inject(LoaderService);
   private messageService: MessageService = inject(MessageService);
   private storageService: StorageService = inject(StorageService);
+  private readonly USERS_STORAGE_KEY: string = 'users';
 
   private usersSubject: BehaviorSubject<IUser[]> =
     new BehaviorSubject<IUser[]>([]);
 
   setUsers(users: IUser[]): void {
-    this.storageService.setItem<IUser[]>(USERS_STORAGE_KEY, users);
+    this.storageService.setItem<IUser[]>(this.USERS_STORAGE_KEY, users);
     this.usersSubject.next(users);
   }
 
@@ -53,7 +52,7 @@ export class UserService {
   loadUsers(): Observable<IUser[]> {
     return defer((): Observable<IUser[]> => {
       const savedUsers: IUser[] | null =
-        this.storageService.getItem<IUser[]>(USERS_STORAGE_KEY);
+        this.storageService.getItem<IUser[]>(this.USERS_STORAGE_KEY);
 
       if (savedUsers !== null) {
         this.usersSubject.next(savedUsers);
