@@ -1,0 +1,93 @@
+<form class="user-create" id="user-create-form" [formGroup]="userForm" (ngSubmit)="submit()">
+  <h2 class="user-create__title">Добавить пользователя</h2>
+
+  <fieldset class="user-create__group">
+    <legend>Основные данные</legend>
+
+    <div class="user-create__field">
+      <label for="create-user-name">Имя</label>
+      <input id="create-user-name" type="text" formControlName="name" required>
+    </div>
+
+    <div class="user-create__field">
+      <label for="create-user-username">Логин</label>
+      <input id="create-user-username" type="text" formControlName="username" required>
+    </div>
+
+    <div class="user-create__field">
+      <label for="create-user-email">Эл. почта</label>
+      <input id="create-user-email" type="email" formControlName="email" required>
+    </div>
+
+    <div class="user-create__field">
+      <label for="create-user-phone">Телефон</label>
+      <input id="create-user-phone" type="tel" formControlName="phone" required>
+    </div>
+
+    <div class="user-create__field">
+      <label for="create-user-website">Веб-сайт</label>
+      <input id="create-user-website" type="text" formControlName="website">
+    </div>
+  </fieldset>
+
+  <fieldset class="user-create__group" formGroupName="address">
+    <legend>Адрес</legend>
+
+    <div class="user-create__field">
+      <label for="create-user-city">Город</label>
+      <input id="create-user-city" type="text" formControlName="city" required>
+    </div>
+
+    <div class="user-create__field">
+      <label for="create-user-street">Улица</label>
+      <input id="create-user-street" type="text" formControlName="street" required>
+    </div>
+
+    <div class="user-create__field">
+      <label for="create-user-suite">Офис или квартира</label>
+      <input id="create-user-suite" type="text" formControlName="suite">
+    </div>
+
+    <div class="user-create__field">
+      <label for="create-user-zipcode">Индекс</label>
+      <input id="create-user-zipcode" type="text" formControlName="zipcode" required>
+    </div>
+
+    <fieldset class="user-create__group" formGroupName="geo">
+      <legend>Координаты</legend>
+
+      <div class="user-create__field">
+        <label for="create-user-lat">Широта</label>
+        <input id="create-user-lat" type="text" formControlName="lat" required>
+      </div>
+
+      <div class="user-create__field">
+        <label for="create-user-lng">Долгота</label>
+        <input id="create-user-lng" type="text" formControlName="lng" required>
+      </div>
+    </fieldset>
+  </fieldset>
+
+  <fieldset class="user-create__group" formGroupName="company">
+    <legend>Компания</legend>
+
+    <div class="user-create__field">
+      <label for="create-user-company-name">Название</label>
+      <input id="create-user-company-name" type="text" formControlName="name" required>
+    </div>
+
+    <div class="user-create__field">
+      <label for="create-user-catch-phrase">Миссия</label>
+      <input id="create-user-catch-phrase" type="text" formControlName="catchPhrase">
+    </div>
+
+    <div class="user-create__field">
+      <label for="create-user-bs">Специализация</label>
+      <input id="create-user-bs" type="text" formControlName="bs">
+    </div>
+  </fieldset>
+
+  <button class="user-create__submit" id="create-user-submit" type="submit" [disabled]="userForm.invalid">
+    Создать пользователя
+  </button>
+</form>
