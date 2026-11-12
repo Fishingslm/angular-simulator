@@ -8,12 +8,13 @@ import {
 } from '@angular/forms';
 import { IUser } from '../interfaces/IUser';
 
-
 type FormControls<T> = {
   [K in keyof T]: T[K] extends object
     ? FormGroup<FormControls<T[K]>>
     : FormControl<T[K]>;
 };
+
+type UserFormValue = Omit<IUser, 'id'> & { id: string };
 
 @Component({
   selector: 'app-user-create',
@@ -27,8 +28,8 @@ export class UserCreateComponent {
 
   private formBuilder: NonNullableFormBuilder = inject(NonNullableFormBuilder);
 
-  userForm: FormGroup<FormControls<IUser>> = this.formBuilder.group({
-    id: [0, Validators.required],
+  userForm: FormGroup<FormControls<UserFormValue>> = this.formBuilder.group({
+    id: '',
     name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
     username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
     email: ['', [Validators.required, Validators.email, Validators.maxLength(100)]],
@@ -58,11 +59,10 @@ export class UserCreateComponent {
       return;
     }
 
-    this.userForm.controls.id.setValue(Date.now());
-
-    const user: IUser = this.userForm.getRawValue();
-
-    this.createUser.emit(user);
+    this.createUser.emit({
+      ...this.userForm.getRawValue(),
+      id: Date.now(),
+    });
     this.userForm.reset();
   }
 
