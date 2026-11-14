@@ -1,11 +1,12 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import { BehaviorSubject, Observable, asapScheduler, combineLatest, map, subscribeOn, switchMap } from 'rxjs';
+import { afterNextRender, Component, DestroyRef, inject } from '@angular/core';
+import { BehaviorSubject, Observable, combineLatest, map } from 'rxjs';
 import { IUser } from '../interfaces/IUser';
 import { UserService } from '../services/user.service';
 import { UserCardComponent } from '../user-card/user-card.component';
 import { UserCreateComponent } from '../user-create/user-create.component';
 import { UsersFilterComponent } from '../users-filter/users-filter.component';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-users-page',
@@ -16,14 +17,10 @@ import { UsersFilterComponent } from '../users-filter/users-filter.component';
 export class UsersPageComponent {
 
   private userService: UserService = inject(UserService);
+  private destroyRef: DestroyRef = inject(DestroyRef);
   private searchSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
-  users$: Observable<IUser[]> =
-    this.userService.loadUsers()
-      .pipe(
-        subscribeOn(asapScheduler),
-        switchMap((): Observable<IUser[]> => this.userService.getUsers()),
-      );
+  users$: Observable<IUser[]> = this.userService.getUsers();
 
   filteredUsers$: Observable<IUser[]> = combineLatest([this.users$, this.searchSubject])
     .pipe(
@@ -34,6 +31,14 @@ export class UsersPageComponent {
         });
       }),
     );
+
+  constructor() {
+    afterNextRender((): void => {
+      this.userService.loadUsers()
+        .pipe(takeUntilDestroyed(this.destroyRef))
+        .subscribe();
+    });
+  }
 
   deleteUser(id: number): void {
     this.userService.deleteUser(id);
