@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { afterNextRender, Component, DestroyRef, inject } from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
 import { BehaviorSubject, Observable, combineLatest, map } from 'rxjs';
 import { IUser } from '../interfaces/IUser';
 import { UserService } from '../services/user.service';
@@ -33,11 +33,11 @@ export class UsersPageComponent {
     );
 
   constructor() {
-    afterNextRender((): void => {
+    window.setTimeout((): void => {
       this.userService.loadUsers()
         .pipe(takeUntilDestroyed(this.destroyRef))
         .subscribe();
-    });
+    }, 0);
   }
 
   deleteUser(id: number): void {
