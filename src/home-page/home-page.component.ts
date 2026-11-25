@@ -5,16 +5,25 @@ import { IArticle } from '../interfaces/IArticle';
 import { IPhoto } from '../interfaces/IPhoto';
 import { MessageService } from '../services/message.service';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { faChevronRight, faPeopleGroup, faPlay, faShieldHalved, faStar, faTag, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-home-page',
-  imports: [FormsModule],
+  imports: [FormsModule, FontAwesomeModule],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
 })
 export class HomePageComponent {
 
   messageService: MessageService = inject(MessageService);
+  readonly starIcon: IconDefinition = faStar;
+  readonly playIcon: IconDefinition = faPlay;
+  readonly liveArrowIcon: IconDefinition = faChevronRight;
+  readonly calendarIcon: IconDefinition = faCalendar;
+  readonly selectArrowIcon: IconDefinition = faChevronDown;
 
   selectedLocation: string = '';
   selectedDate: string = '';
@@ -23,21 +32,21 @@ export class HomePageComponent {
   advantages: IAdvantage[] = [
     {
       id: 1,
-      icon: 'guide',
+      icon: faPeopleGroup,
       title: 'Опытный гид',
       description:
         'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
     },
     {
       id: 2,
-      icon: 'safety',
+      icon: faShieldHalved,
       title: 'Безопасный поход',
       description:
         'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
     },
     {
       id: 3,
-      icon: 'price',
+      icon: faTag,
       title: 'Лояльные цены',
       description:
         'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',

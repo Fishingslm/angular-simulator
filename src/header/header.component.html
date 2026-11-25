@@ -11,6 +11,33 @@
         }
       </nav>
 
+      @if (themeState$ | async; as themeState) {
+        <p-toggleswitch
+          inputId="header-dark-mode"
+          ariaLabel="Тёмный режим"
+          [ngModel]="themeState.colorMode === colorModes.DARK"
+          (onChange)="setDarkMode($event.checked)"
+        >
+          <ng-template #handle let-checked="checked">
+            <fa-icon
+              class="header__mode-icon"
+              [icon]="checked ? moonIcon : sunIcon"
+              aria-hidden="true"
+            ></fa-icon>
+          </ng-template>
+        </p-toggleswitch>
+        <p-selectbutton
+          aria-label="Тема оформления"
+          size="small"
+          [options]="themeOptions"
+          optionLabel="label"
+          optionValue="value"
+          [allowEmpty]="false"
+          [ngModel]="themeState.theme"
+          (ngModelChange)="setTheme($event)"
+        ></p-selectbutton>
+      }
+      
       <button class="header__button" id="consultation-button" type="button">Консультация</button>
     </div>
 

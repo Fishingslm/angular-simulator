@@ -39,9 +39,10 @@
           <a class="footer__contact" id="footer-phone-link" href="tel:+71234567890">+7 (123) 456-78-90</a>
         </div>
         <div class="footer__socials">
-          @for (icon of socialIcons; track icon) {
-            <a class="footer__social-link" id="footer-{{ icon }}-link" href="#" [attr.aria-label]="icon">
-              <img class="footer__social-icon" [src]="'/images/footer-' + icon + '-icon.svg'" alt="">
+          @for (icon of socialIcons; track icon.iconName) {
+            <a class="footer__social-link" id="footer-{{ icon.iconName }}-link"
+              href="#" [attr.aria-label]="icon.iconName">
+              <fa-icon class="footer__social-icon" [icon]="icon" aria-hidden="true"></fa-icon>
             </a>
           }
         </div>
@@ -51,22 +52,22 @@
 
         <ul class="footer__links">
           <li class="footer__item">
-            <a class="footer__link" id="footer-summer-link" href="#">Прогулки в горы летом</a>
+            <a class="footer__link" id="footer-summer-link" href="#"><fa-icon class="footer__link-arrow" [icon]="linkArrowIcon" aria-hidden="true"></fa-icon>Прогулки в горы летом</a>
           </li>
           <li class="footer__item">
-            <a class="footer__link" id="footer-winter-link" href="#">Зимние походы в горы</a>
+            <a class="footer__link" id="footer-winter-link" href="#"><fa-icon class="footer__link-arrow" [icon]="linkArrowIcon" aria-hidden="true"></fa-icon>Зимние походы в горы</a>
           </li>
           <li class="footer__item">
-            <a class="footer__link" id="footer-temples-link" href="#">Посещение храмов в горах</a>
+            <a class="footer__link" id="footer-temples-link" href="#"><fa-icon class="footer__link-arrow" [icon]="linkArrowIcon" aria-hidden="true"></fa-icon>Посещение храмов в горах</a>
           </li>
           <li class="footer__item">
-            <a class="footer__link" id="footer-extreme-link" href="#">Экстремальные виды туризма</a>
+            <a class="footer__link" id="footer-extreme-link" href="#"><fa-icon class="footer__link-arrow" [icon]="linkArrowIcon" aria-hidden="true"></fa-icon>Экстремальные виды туризма</a>
           </li>
           <li class="footer__item">
-            <a class="footer__link" id="footer-amazon-link" href="#">Походы в джунглях Амазонии</a>
+            <a class="footer__link" id="footer-amazon-link" href="#"><fa-icon class="footer__link-arrow" [icon]="linkArrowIcon" aria-hidden="true"></fa-icon>Походы в джунглях Амазонии</a>
           </li>
           <li class="footer__item">
-            <a class="footer__link" id="footer-africa-link" href="#">Поездка в Африку</a>
+            <a class="footer__link" id="footer-africa-link" href="#"><fa-icon class="footer__link-arrow" [icon]="linkArrowIcon" aria-hidden="true"></fa-icon>Поездка в Африку</a>
           </li>
         </ul>
       </nav>
@@ -76,16 +77,16 @@
 
         <ul class="footer__links">
           <li class="footer__item">
-            <a class="footer__link" id="footer-packing-link" href="#">Как собрать в долгий поход?</a>
+            <a class="footer__link" id="footer-packing-link" href="#"><fa-icon class="footer__link-arrow" [icon]="linkArrowIcon" aria-hidden="true"></fa-icon>Как собрать в долгий поход?</a>
           </li>
           <li class="footer__item">
-            <a class="footer__link" id="footer-essentials-link" href="#">Жизненно важные предметы для похода</a>
+            <a class="footer__link" id="footer-essentials-link" href="#"><fa-icon class="footer__link-arrow" [icon]="linkArrowIcon" aria-hidden="true"></fa-icon>Жизненно важные предметы для похода</a>
           </li>
           <li class="footer__item">
-            <a class="footer__link" id="footer-insurance-link" href="#">Медицинская страховка, гарантии безопасности</a>
+            <a class="footer__link" id="footer-insurance-link" href="#"><fa-icon class="footer__link-arrow" [icon]="linkArrowIcon" aria-hidden="true"></fa-icon>Медицинская страховка, гарантии безопасности</a>
           </li>
           <li class="footer__item">
-            <a class="footer__link" id="footer-doctors-link" href="#">Если вы врач — загляните сюда</a>
+            <a class="footer__link" id="footer-doctors-link" href="#"><fa-icon class="footer__link-arrow" [icon]="linkArrowIcon" aria-hidden="true"></fa-icon>Если вы врач — загляните сюда</a>
           </li>
         </ul>
       </nav>

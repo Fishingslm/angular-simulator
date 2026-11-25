@@ -23,10 +23,12 @@
 }
 
 .message__icon {
-  display: block;
+  display: inline-flex;
   width: 40px;
   height: 40px;
   flex-shrink: 0;
+  font-size: 40px;
+  line-height: 1;
 }
 
 .message__content {
@@ -44,12 +46,11 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
-}
-
-.message__close img {
-  display: block;
-  width: 20px;
-  height: 20px;
+  display: grid;
+  place-items: center;
+  color: inherit;
+  font-size: 20px;
+  line-height: 1;
 }
 
 .message__title {

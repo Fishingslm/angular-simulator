@@ -8,7 +8,7 @@
   gap: 64px;
   padding: 40px 100px;
   border-radius: 6px;
-  background-color: var(--white-color);
+  background-color: var(--surface-color);
   box-shadow: 0 0 15px rgba(24, 18, 30, 0.12);
 }
 
@@ -177,7 +177,7 @@
 
 .footer__bottom {
   padding: 24px 0;
-  background-color: var(--text-color);
+  background-color: var(--footer-bottom-background-color);
   color: var(--white-color);
   font-size: 14px;
   font-weight: 600;
@@ -221,19 +221,19 @@
 }
 
 .footer__social-icon {
-  display: block;
+  display: inline-flex;
+  color: var(--white-color);
+  font-size: 28px;
 }
 
-.footer__link::before {
-  content: '';
+.footer__link-arrow {
   position: absolute;
   top: 4px;
   left: 2px;
-  width: 6px;
-  height: 10px;
-  background-image: url('/images/footer-arrow-icon.svg');
-  background-repeat: no-repeat;
-  background-position: center;
+  display: inline-flex;
+  color: var(--white-color);
+  font-size: 10px;
+  line-height: 1;
 }
 
 .newsletter__agreement-link {

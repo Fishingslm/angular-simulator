@@ -9,9 +9,9 @@
   padding: 35px 30px 50px;
   border-top: 4px solid #D4A373;
   border-radius: 4px;
-  background-color: #FFFFFF;
+  background-color: var(--surface-color);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-  color: #1D3939;
+  color: var(--user-text-color);
 }
 
 .user-card__header {
@@ -37,7 +37,7 @@
 
 .user-card__id {
   margin-left: 8px;
-  color: #667C7C;
+  color: var(--user-muted-color);
   font-size: 12px;
 }
 
@@ -60,7 +60,7 @@
 .user-card__heading::after {
   flex: 1;
   height: 1px;
-  background-color: #E2E8F0;
+  background-color: var(--user-border-color);
   content: '';
 }
 
@@ -81,7 +81,7 @@
 
 .user-card__row dt {
   flex-shrink: 0;
-  color: #667C7C;
+  color: var(--user-muted-color);
 }
 
 .user-card__row dd {
@@ -111,9 +111,9 @@
 
 .user-card__coordinate {
   padding: 0 7px;
-  border: 1px solid #E2E8F0;
+  border: 1px solid var(--user-border-color);
   border-radius: 3px;
-  background-color: #F4F7F5;
+  background-color: var(--section-background-color);
   font-size: 12px;
   line-height: 18px;
 }
@@ -121,7 +121,7 @@
 .user-card__row .user-card__quote {
   max-width: 189px;
   padding-top: 4px;
-  color: #667C7C;
+  color: var(--user-muted-color);
   font-size: 13px;
   font-style: italic;
   line-height: 1.5;

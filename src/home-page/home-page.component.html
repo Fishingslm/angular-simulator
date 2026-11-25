@@ -3,12 +3,15 @@
     <h1 class="hero__title">Насладись прогулкой в горах<br>с командой единомышленников</h1>
     <form class="tour-search" id="tour-search-form">
       <div class="tour-search__field">
-        <select class="tour-search__control" id="tour-location" name="location" aria-label="Локация для тура" [(ngModel)]="selectedLocation" required>
-          <option value="">Локация для тура</option>
-          <option value="Алтай">Алтай</option>
-          <option value="Кавказ">Кавказ</option>
-          <option value="Карелия">Карелия</option>
-        </select>
+        <div class="tour-search__select">
+          <select class="tour-search__control" id="tour-location" name="location" aria-label="Локация для тура" [(ngModel)]="selectedLocation" required>
+            <option value="">Локация для тура</option>
+            <option value="Алтай">Алтай</option>
+            <option value="Кавказ">Кавказ</option>
+            <option value="Карелия">Карелия</option>
+          </select>
+          <fa-icon class="tour-search__select-icon" [icon]="selectArrowIcon" aria-hidden="true"></fa-icon>
+        </div>
 
         <span class="tour-search__hint">{{ selectedLocation || 'выберите из списка' }}</span>
       </div>
@@ -17,18 +20,23 @@
         <div class="tour-search__date">
           <input class="tour-search__control tour-search__date-input" id="tour-date" name="date" type="date" [(ngModel)]="selectedDate" required>
           <label class="tour-search__date-label" for="tour-date">Дата похода</label>
+          <fa-icon class="tour-search__calendar-icon" [icon]="calendarIcon" aria-hidden="true"></fa-icon>
         </div>
 
         <span class="tour-search__hint">{{ selectedDate || 'укажите дату' }}</span>
       </div>
 
       <div class="tour-search__field">
-        <select class="tour-search__control" id="tour-participants" name="participants" aria-label="Участники" [(ngModel)]="selectedParticipants" required>
-          <option value="">Участники</option>
-          <option value="4">4 человека</option>
-          <option value="5">5 человек</option>
-          <option value="6">6 человек</option>
-        </select>
+        <div class="tour-search__select">
+          <select class="tour-search__control" id="tour-participants" name="participants" aria-label="Участники" [(ngModel)]="selectedParticipants" required>
+            <option value="">Участники</option>
+            <option value="4">4 человека</option>
+            <option value="5">5 человек</option>
+            <option value="6">6 человек</option>
+          </select>
+          <fa-icon class="tour-search__select-icon" [icon]="selectArrowIcon" aria-hidden="true"></fa-icon>
+        </div>
+
         <span class="tour-search__hint">{{ selectedParticipants || 'минимум 4 человека' }}</span>
       </div>
 
@@ -40,7 +48,7 @@
       <div class="live-input__field">
         <input class="live-input__control" id="live-text-input" type="text" placeholder="Живой инпут" aria-label="Введите текст" [(ngModel)]="liveText">
         <span class="live-input__arrow" aria-hidden="true">
-          <img src="/images/live-arrow-icon.svg" alt="">
+          <fa-icon [icon]="liveArrowIcon"></fa-icon>
         </span>
       </div>
 
@@ -58,7 +66,7 @@
         <img class="about__image" src="/images/about-cabin.png" alt="Домик среди гор и леса">
 
         <span class="about__play" aria-hidden="true">
-          <img src="/images/play-icon.svg" alt="">
+          <fa-icon [icon]="playIcon"></fa-icon>
         </span>
       </div>
     </div>
@@ -102,8 +110,8 @@
       <ul class="offer__advantages">
         @for (advantage of advantages; track advantage.id) {
           <li class="offer__advantage" id="advantage-{{ advantage.id }}">
-            <span class="offer__icon offer__icon--{{ advantage.icon }}">
-              <img [src]="'/images/' + advantage.icon + '-icon.svg'" alt="">
+            <span class="offer__icon offer__icon--{{ advantage.icon.iconName }}" aria-hidden="true">
+              <fa-icon [icon]="advantage.icon"></fa-icon>
             </span>
 
             <div class="offer__advantage-content">
@@ -137,7 +145,7 @@
         <article class="destinations__card">
           <img class="destinations__image" [src]="'/images/' + destination.image + '.png'" [alt]="destination.title">
           <div class="destinations__rating">
-            <img src="/images/star-icon.svg" alt="">
+            <fa-icon [icon]="starIcon" aria-hidden="true"></fa-icon>
             <span>{{ destination.rating.toFixed(1) }}</span>
           </div>
 
