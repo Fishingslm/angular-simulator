@@ -9,14 +9,14 @@
 </div>
 <ng-template #messageTemplate let-message="message">
   <article class="message" role="status">
-    <img class="message__icon" src="/images/message-icon.svg" alt="">
+    <fa-icon class="message__icon" [icon]="messageIcon" aria-hidden="true"></fa-icon>
     <div class="message__content">
       <h3 class="message__title">{{ message.type }}</h3>
       <p class="message__text">{{ message.text }}</p>
     </div>
 
     <button class="message__close" id="close-message-{{ message.id }}" type="button" aria-label="Закрыть сообщение" (click)="messageService.closeMessage(message.id)">
-      <img src="/images/message-close-icon.svg" alt="">
+      <fa-icon [icon]="closeIcon" aria-hidden="true"></fa-icon>
     </button>
   </article>
 </ng-template>

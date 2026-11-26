@@ -6,6 +6,26 @@
   --button-color: #1A3E3E;
   --accent-color: #F2BE22;
   --section-background-color: #F3F5F4;
+  --page-background-color: #FFFFFF;
+  --surface-color: #FDFDFD;
+  --footer-bottom-background-color: #18121E;
+  --link-color: var(--button-color);
+  --user-text-color: #1D3939;
+  --user-muted-color: #667C7C;
+  --user-border-color: #E2E8F0;
+}
+
+:root.app-dark {
+  color-scheme: dark;
+  --text-color: #F4F6F5;
+  --page-background-color: #141B1B;
+  --surface-color: #283434;
+  --section-background-color: #1F2929;
+  --footer-bottom-background-color: #101617;
+  --link-color: #9CDCCD;
+  --user-text-color: var(--text-color);
+  --user-muted-color: #B6C8C5;
+  --user-border-color: #596D6D;
 }
 
 * {
@@ -16,6 +36,7 @@ body {
   margin: 0;
   color: var(--text-color);
   font-family: 'Nunito Sans', sans-serif;
+  background-color: var(--page-background-color);
 }
 
 body.no-scroll {

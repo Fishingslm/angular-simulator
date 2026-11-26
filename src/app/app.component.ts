@@ -9,6 +9,7 @@ import { MessageComponent } from '../message/message.component';
 import { LoaderComponent } from '../loader/loader.component';
 import { AsyncPipe } from '@angular/common';
 import { LoaderService } from '../services/loader.service';
+import { ThemeService } from '../services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -28,6 +29,7 @@ export class AppComponent implements OnDestroy {
   private loadingTimeoutId: number | undefined;
 
   constructor() {
+    inject(ThemeService);
     this.saveLastVisitDate();
     this.saveVisitCount();
     this.startLoading();

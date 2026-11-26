@@ -116,3 +116,9 @@
 .header__nav a.header__link--active {
   color: var(--accent-color);
 }
+
+.header__mode-icon {
+  display: inline-flex;
+  font-size: 0.625rem;
+  line-height: 1;
+}
