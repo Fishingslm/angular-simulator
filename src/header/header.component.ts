@@ -11,6 +11,8 @@ import { ColorMode } from '../enums/ColorMode';
 import { ThemeService } from '../services/theme.service';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { Theme } from '../enums/Theme';
+import { Observable } from 'rxjs';
+import { IThemeState } from '../interfaces/IThemeState';
 
 @Component({
   selector: 'app-header',
@@ -21,7 +23,7 @@ import { Theme } from '../enums/Theme';
 export class HeaderComponent implements OnDestroy {
 
   private readonly themeService: ThemeService = inject(ThemeService);
-  readonly themeState$ = this.themeService.state$;
+  readonly themeState$: Observable<IThemeState> = this.themeService.state$;
   readonly colorModes: typeof ColorMode = ColorMode;
   readonly sunIcon: IconDefinition = faSun;
   readonly moonIcon: IconDefinition = faMoon;
